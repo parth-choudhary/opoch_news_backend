@@ -20,9 +20,9 @@ def sources(request):
         item['category'] = tag.title
         item['sortBysAvailable'] = ['top']
         item['urlsToLogos'] = {
-            "small": 'https://' + request.get_host() + tag.keyword_image.image.url,
-            "medium": 'https://' + request.get_host() + tag.keyword_image.image.url,
-            "large": 'https://' + request.get_host() + tag.keyword_image.image.url
+            "small": '',
+            "medium": '',
+            "large": ''
         }
         sources.append(item)
     return JsonResponse({
@@ -36,7 +36,7 @@ def articles(request):
     links = Link.objects.published().select_related(
         "user",
         "user__%s" % USER_PROFILE_RELATED_NAME
-    ).filter(keywords__keyword__slug=tag.lower()).prefetch_related("keywords__keyword")
+    ).filter(keywords__keyword__slug=tag.lower()).prefetch_related("keywords__keyword")[:50]
     articles = []
     for link in links:
         item = {}
