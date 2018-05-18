@@ -16,13 +16,13 @@ def sources(request):
         item['id'] = tag.id
         item['name'] = tag.title
         item['description'] = tag.title
-        item['url'] = 'http://' + request.get_host() + tag.keyword_image.image.url
+        item['url'] = 'https://' + request.get_host() + tag.keyword_image.image.url
         item['category'] = tag.title
         item['sortBysAvailable'] = ['top']
         item['urlsToLogos'] = {
-            "small": 'http://' + request.get_host() + tag.keyword_image.image.url,
-            "medium": 'http://' + request.get_host() + tag.keyword_image.image.url,
-            "large": 'http://' + request.get_host() + tag.keyword_image.image.url
+            "small": 'https://' + request.get_host() + tag.keyword_image.image.url,
+            "medium": 'https://' + request.get_host() + tag.keyword_image.image.url,
+            "large": 'https://' + request.get_host() + tag.keyword_image.image.url
         }
         sources.append(item)
     return JsonResponse({
