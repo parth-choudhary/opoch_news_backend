@@ -1,5 +1,5 @@
 =====
-Polls
+NEWS
 =====
 
 Opoch News is a simple Django app.
